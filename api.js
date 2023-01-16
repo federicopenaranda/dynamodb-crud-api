@@ -145,7 +145,6 @@ const getAllPosts = async (event) => {
         const { Items } = await db.send(new ScanCommand({
             TableName: process.env.DYNAMODB_TABLE_NAME
         }));
-        console.log(deleteResult);
         response.body = JSON.stringify({
             message: 'Successfully retrieve posts.',
             data: Items.map( (item) => unmarshall(item) ),
